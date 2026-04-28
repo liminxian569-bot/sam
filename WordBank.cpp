@@ -4,8 +4,8 @@ WordBank::WordBank() {
     
     words = { "computer", "science", "apple", "banana", "keyboard", "system", "coding" };
 
-   
-    meanings = { "¹q¸£", "¬ì¾Ç", "Ä«ªG", "­»¿¼", "Áä½L", "¨t²Î", "µ{¦¡³]­p" };
+
+    meanings = { "é›»è…¦", "ç§‘å­¸", "è˜‹æœ", "é¦™è•‰", "éµç›¤", "ç³»çµ±", "ç¨‹å¼è¨­è¨ˆ" };
 
     srand(time(0));
 }
