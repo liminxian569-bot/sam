@@ -12,13 +12,12 @@ private:
     string currentWord;
     string meaning;              
     int hp;
-
+    void drawHangman(int errors); 
 public:
-   
     GameManager(string ans, string masked, string chiMeaning);
-
     void startGame();
 };
-
 #endif
+
+
 
