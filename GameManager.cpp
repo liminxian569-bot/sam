@@ -46,7 +46,7 @@ void GameManager::startGame() {
 
         if (guessWord.length() != answer.length()) {
             cout << ">> 提醒：字數不對喔！這題單字有 " << answer.length() << " 個字母，請重新輸入。" << endl;
-            system("pause"); // <--- 新增 2：讓玩家看完提醒後再清空
+            system("pause"); 
             continue;
         }
 
@@ -80,14 +80,14 @@ void GameManager::startGame() {
             cout << ">> 太棒了！拼寫完全正確！" << endl;
         }
 
-        // <--- 新增 3：如果遊戲還沒結束，暫停畫面讓玩家看清楚回饋
+    
         if (hp > 0 && currentWord != answer) {
             cout << "\n請按任意鍵繼續下一回合..." << endl;
             system("pause");
         }
     }
 
-    system("cls"); // <--- 新增 4：進入結算畫面前，最後清空一次畫面，讓結尾看起來更乾淨
+    system("cls"); 
     cout << "\n========= 遊戲結束 =========" << endl;
     if (hp == 0) {
         drawHangman(3);
