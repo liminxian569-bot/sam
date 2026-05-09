@@ -4,38 +4,20 @@
 GameManager::GameManager(string ans, string masked, string chiMeaning) {
     answer = ans;
     currentWord = masked;
-    meaning = chiMeaning; 
+    meaning = chiMeaning;
     hp = 3;
 }
-void GameManager::drawHangman(int errors) {
-    cout << "    +---+" << endl;
-    cout << "    |   |" << endl;
-    if (errors >= 1) 
-        cout << "    O   |" << endl;
-    else            
-        cout << "        |" << endl;
-    if (errors >= 3)   
-        cout << "   /|\\  |" << endl;   
-    else if (errors >= 2) 
-        cout << "    |   |" << endl;    
-    else    
-        cout << "        |" << endl;
-    if (errors >= 3)
-        cout << "   / \\  |" << endl;
-    else     
-        cout << "        |" << endl;
-    cout << "        |" << endl;
-    cout << "  =========" << endl;
-}
+
 void GameManager::startGame() {
     string guessWord;
     while (hp > 0 && currentWord != answer) {
-        system("cls"); 
+        system("cls");
         cout << "\n=============================" << endl;
         cout << "【中文提示】 " << meaning << endl;
         cout << "【英文單字】 " << currentWord << endl;
         cout << "剩餘血量: " << hp << " 滴" << endl;
-        drawHangman(3 - hp);
+        Pet::Mood currentMood = (hp == 1) ? Pet::LOW_HP : Pet::IDLE;
+        companion.show(currentMood);
         cout << "請輸入完整單字來填空: ";
         cin >> guessWord;
 
@@ -46,7 +28,7 @@ void GameManager::startGame() {
 
         if (guessWord.length() != answer.length()) {
             cout << ">> 提醒：字數不對喔！這題單字有 " << answer.length() << " 個字母，請重新輸入。" << endl;
-            system("pause"); 
+            system("pause");
             continue;
         }
 
@@ -72,28 +54,30 @@ void GameManager::startGame() {
 
         if (hasMistake) {
             hp--;
+            companion.show(Pet::WORRIED);     // <-- 新增
             cout << ">> 答錯囉！扣 1 滴血。" << endl;
-            cout << "【錯誤細節】：" << endl;
             cout << wrongFeedback;
         }
         else {
+            companion.show(Pet::HAPPY);       // <-- 新增
             cout << ">> 太棒了！拼寫完全正確！" << endl;
         }
 
-    
+
         if (hp > 0 && currentWord != answer) {
             cout << "\n請按任意鍵繼續下一回合..." << endl;
             system("pause");
         }
     }
 
-    system("cls"); 
+    system("cls");
     cout << "\n========= 遊戲結束 =========" << endl;
     if (hp == 0) {
-        drawHangman(3);
+        companion.show(Pet::LOSE);
         cout << "遊戲失敗！正確解答是: " << answer << endl;
     }
     else {
+        companion.show(Pet::WIN);
         cout << "恭喜獲勝！你成功猜出單字: " << answer << endl;
     }
 }
