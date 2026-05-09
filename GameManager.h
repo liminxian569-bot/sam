@@ -1,6 +1,6 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
-
+#include "Pet.h"
 #include <iostream>
 #include <string>
 
@@ -10,14 +10,13 @@ class GameManager {
 private:
     string answer;
     string currentWord;
-    string meaning;              
+    string meaning;
     int hp;
-    void drawHangman(int errors); 
+    Pet companion;
 public:
     GameManager(string ans, string masked, string chiMeaning);
     void startGame();
 };
 #endif
-
 
 
