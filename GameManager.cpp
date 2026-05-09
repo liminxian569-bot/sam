@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include <string>
-#include< cctype >
+#include <cctype>
 GameManager::GameManager(string ans, string masked, string chiMeaning) {
     answer = ans;
     currentWord = masked;
