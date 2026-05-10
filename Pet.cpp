@@ -7,7 +7,6 @@ Pet::Pet(const string& petName) {
 void Pet::drawBody(Mood mood) const {
     switch (mood) {
     case IDLE:
-        // 半閉眼悠閒貓
         cout << "       /\\_/\\" << endl;
         cout << "      ( -.- )" << endl;
         cout << "       >   <" << endl;
@@ -16,7 +15,6 @@ void Pet::drawBody(Mood mood) const {
         break;
 
     case HAPPY:
-        // 瞇眼開心貓 + 音符
         cout << "       /\\_/\\   " << endl;
         cout << "      ( ^.^ )" << endl;
         cout << "       >   <" << endl;
@@ -24,7 +22,6 @@ void Pet::drawBody(Mood mood) const {
         cout << "      (_____)~" << endl;
         break;
     case LOW_HP:
-        // 大眼警戒、毛炸開、爪舉起
         cout << "    !  /\\_/\\  !" << endl;
         cout << "      ( O.O )" << endl;
         cout << "       >   <" << endl;
@@ -32,7 +29,6 @@ void Pet::drawBody(Mood mood) const {
         cout << "      (_____)" << endl;
         break;
         case WORRIED:
-            // 哭眼擔心貓
             cout << "       /\\_/\\" << endl;
             cout << "      ( ;.; )" << endl;
             cout << "       > _ <" << endl;
@@ -40,7 +36,6 @@ void Pet::drawBody(Mood mood) const {
             cout << "      (_____)~" << endl;
             break;
     case WIN:
-        // 張嘴大笑、舉爪、星星圍繞
         cout << "    *  /\\_/\\  *" << endl;
         cout << "      ( ^o^ )" << endl;
         cout << "       >   <" << endl;
@@ -49,7 +44,6 @@ void Pet::drawBody(Mood mood) const {
         break;
 
     case LOSE:
-        // 流淚貓
         cout << "       /\\_/\\" << endl;
         cout << "      ( T_T )" << endl;
         cout << "       >   <" << endl;
@@ -59,14 +53,8 @@ void Pet::drawBody(Mood mood) const {
         break;
     }
 }
-
-// ====================================================
-//   貓咪台詞庫（傲嬌個性）
-//   設計重點：嘴硬心軟、自稱「本喵」、用括號描述動作
-// ====================================================
 string Pet::pickReaction(Mood mood) const {
     vector<string> lines;
-
     switch (mood) {
     case IDLE:
         lines = {
@@ -104,10 +92,6 @@ string Pet::pickReaction(Mood mood) const {
     if (lines.empty()) return "";
     return lines[rand() % lines.size()];
 }
-
-// ====================================================
-//   主介面：顯示貓咪 + 對話框
-// ====================================================
 void Pet::show(Mood mood) const {
     drawBody(mood);
     cout << "  " << name << "：「" << pickReaction(mood) << "」" << endl;
