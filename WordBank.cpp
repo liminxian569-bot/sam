@@ -2,15 +2,18 @@
 #include <ctime>
 #include <cstdlib>
 
-WordBank::WordBank() {
-    loadFromFile();
-}
+WordBank::WordBank() {}
 
-void WordBank::loadFromFile() {
-    ifstream file("words.txt");
+void WordBank::loadFromFile(string fileName) {
+    categories.clear();
+    words.clear();
+    meanings.clear();
+
+    ifstream file(fileName);
     string line;
     if (file.is_open()) {
         while (getline(file, line)) {
+            if (line.empty()) continue;
             stringstream ss(line);
             string cat, eng, chi;
             if (getline(ss, cat, '|') && getline(ss, eng, '|') && getline(ss, chi)) {
@@ -21,14 +24,23 @@ void WordBank::loadFromFile() {
         }
         file.close();
     } else {
-        categories.push_back("default");
-        words.push_back("error");
-        meanings.push_back("讀檔失敗");
+        cout << "[Error] Cannot open " << fileName << endl;
     }
 }
 
-void WordBank::generateQuestion() {
-    if (words.empty()) return;
+void WordBank::generateQuestion(int difficulty) {
+    string targetFile;
+    if (difficulty == 1) targetFile = "easy.txt";
+    else if (difficulty == 2) targetFile = "normal.txt";
+    else targetFile = "hard.txt";
+
+    loadFromFile(targetFile);
+
+    if (words.empty()) {
+        answer = "error";
+        meaning = "無資料";
+        return;
+    }
 
     int index = rand() % words.size();
     answer = words[index];
@@ -37,12 +49,9 @@ void WordBank::generateQuestion() {
     maskedWord = answer;
 
     int len = answer.length();
-    
     if (len < 5) {
         int numHoles = (rand() % 2) + 1;
-        for(int i = 0; i < numHoles; i++) {
-            maskedWord[rand() % len] = '_';
-        }
+        for(int i = 0; i < numHoles; i++) maskedWord[rand() % len] = '_';
     } 
     else if (len % 2 != 0) {
         maskedWord[0] = '_';
