@@ -19,11 +19,11 @@ private:
     string meaning;
     string category;
 
-    void loadFromFile();
+    void loadFromFile(string fileName);
 
 public:
     WordBank();
-    void generateQuestion();
+    void generateQuestion(int difficulty);
     string getAnswer() { return answer; }
     string getMaskedWord() { return maskedWord; }
     string getMeaning() { return meaning; }
