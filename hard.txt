@@ -1,0 +1,12 @@
+food|spaghetti|義大利麵
+food|sandwich|三明治
+tech|processor|處理器
+tech|database|資料庫
+tech|algorithm|演算法
+tech|smartphone|智慧型手機
+animal|elephant|大象
+animal|giraffe|長頸鹿
+animal|kangaroo|袋鼠
+animal|butterfly|蝴蝶
+subject|chemistry|化學
+subject|biology|生物

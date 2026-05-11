@@ -1,0 +1,10 @@
+food|apple|蘋果
+food|cat|貓
+tech|mac|麥金塔
+subject|math|數學
+food|pear|梨子
+animal|dog|小狗
+animal|lion|獅子
+food|cake|蛋糕
+tech|chip|晶片
+subject|arts|藝術

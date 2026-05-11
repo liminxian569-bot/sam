@@ -1,0 +1,13 @@
+food|banana|香蕉
+food|cherry|櫻桃
+food|pizza|披薩
+tech|keyboard|鍵盤
+tech|monitor|顯示器
+tech|software|軟體
+tech|internet|網路
+animal|tiger|老虎
+animal|rabbit|兔子
+subject|science|科學
+subject|history|歷史
+subject|physics|物理
+animal|penguin|企鵝
