@@ -3,16 +3,32 @@
 #include <ctime>
 #include <string>
 #include <cctype>
+
 #include "WordBank.h"
+#include "ScoreBoard.h" 
+
+
+#define private public
 #include "GameManager.h"
+#undef private 
 
 using namespace std;
 
 int main() {
     srand(time(0));
     char playAgain;
+    
+   
+    ScoreBoard board("record.txt"); 
+    int currentStreak = 0;          
 
     do {
+        system("cls"); 
+        
+       
+        board.display(); 
+        cout << "   [目前連勝: " << currentStreak << " 場]\n" << endl;
+
         int difficulty;
         cout << "==============================" << endl;
         cout << "   請選擇遊戲難度 (1-3): " << endl;
@@ -29,14 +45,28 @@ int main() {
         }
 
         WordBank bank;
-        bank.generateQuestion(difficulty);
+        
+        bank.generateQuestion(); 
 
         string ans = bank.getAnswer();
         string masked = bank.getMaskedWord();
         string chi = bank.getMeaning();
 
         GameManager game(ans, masked, chi);
-        game.startGame();
+        game.startGame(); 
+
+        
+        bool isWin = (game.hp > 0);
+
+       
+        if (isWin) {
+            currentStreak++;
+        } else {
+            currentStreak = 0; 
+        }
+
+        
+        board.recordResult(difficulty, isWin, currentStreak);
 
         cout << "\n再玩一局? (Y/N): ";
         cin >> playAgain;
