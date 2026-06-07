@@ -61,7 +61,7 @@
 * 打開終端機（PowerShell 或 CMD），切換至本專案所在的原始碼目錄夾，輸入以下編譯指令進行連結：
   
    ```bash
-  g++ main.cpp WordBank.cpp GameManager.cpp Pet.cpp Scoreboard.cpp -o maing++ main.cpp WordBank.cpp GameManager.cpp Pet.cpp Scoreboard.cpp -o main.exe
+  g++ main.cpp WordBank.cpp GameManager.cpp Pet.cpp Scoreboard.cpp -o main.exe
 * 請確保題庫文字檔（easy.txt、normal.txt、hard.txt 以及原始 words.txt）與生成的 main.exe 位在同一個資料夾目錄下，接著輸入指令即可運行：
  
   ```bash
