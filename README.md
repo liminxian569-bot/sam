@@ -84,5 +84,19 @@
 
 ### 2. 多檔案分離編譯指令
 打開終端機（PowerShell 或 CMD），切換至本專案所在的原始碼目錄夾，輸入以下編譯指令進行連結：
-```bash
 g++ main.cpp WordBank.cpp GameManager.cpp Pet.cpp Scoreboard.cpp -o main.exe
+
+---
+
+##  遊戲執行畫面
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/e4296c89-8765-40c7-a8c9-0e956606191e" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/e9d25b2e-66ef-4c2c-b147-28d227557100" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/2c22ceea-bee0-48f8-90bb-bebf5f6ed944" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/effe8bf8-52f8-4e7b-9c0d-ac0773a7b142" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/da939446-65d8-439b-a341-8edd169cf0e1" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/f7920c10-c3cf-4988-b736-216794d5248b" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/e5ec7dc7-e142-4e2d-8195-882da41eecc4" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/3d93025e-e281-4eb9-bea2-fecfbc421715" />
+<img width="384" height="288" alt="Image" src="https://github.com/user-attachments/assets/34c9fb0e-c12b-4aae-8fa7-c4f78258566f" />
+
+
